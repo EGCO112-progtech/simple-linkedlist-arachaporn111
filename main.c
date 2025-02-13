@@ -17,25 +17,21 @@ int main(int argc, const char * argv[]) {
     head=&a;
     b.value=head->value+3; 
     b.next=&d;
-    d.value=11; // head->next->next->value=11 //a.next->next->value=11 // b.next->value=11 
-    //d.value=head->next->next->value+3;
+    d.value=head->next->value+3; // head->next->next->value=11 //a.next->next->value=11 // b.next->value=11 
     d.next=NULL;
     printf("%d\n", head ->value ); //what value for 5
-    printf("%d\n", head ->next->value ); //what value for 8
-    printf("%d\n", head ->next->next->value );//what value for 11
-    //printf ("\n");
-    //printf("%d\n", d.value);//what value for 11
+    printf("%d\n", head ->next->value ); //((*head).next)->value // what value for 8
+    printf("%d\n", head->next->next->value);//what value for 11 
 /*  Exercise I
     1. Add 1 more than at the end
     2. Add value(11)
     3. Make next become NULL
  */
-
     struct node f;
-    f.next=&a;
     head=&f;
+    f.next=&a;
     f.value=2;
-    //printf ("\n");
+    printf ("\n");
     printf("%d\n", head ->value ); //what value for 2
     printf("%d\n", head ->next->value ); //what value for 5
     printf("%d\n", head ->next->next->value );//what value for 8
@@ -45,16 +41,17 @@ int main(int argc, const char * argv[]) {
         2. Add value (2)
         
 */
-
+    printf ("\n");
     typedef struct node* NodePtr;
-    NodePtr tmp=head; //add temp value to faciliate
+    NodePtr tmp=head; // struct node* tmp = head; //add temp value to faciliate
     int i,n=4;
     for(i=0;i<n;i++)
     {
-        printf("%3d", tmp->value);
-        tmp=tmp->next;
+        printf("%d ", tmp->value);
+        tmp=tmp->next; // ถูก
+        //tmp=head->next; // ผิด
     }
-    printf ("\n\n");
+    printf ("\n");
     /*  Exercise III Use loop to print everything
         int i,n=5;
         for(i=0;i<n;i++){
@@ -63,12 +60,14 @@ int main(int argc, const char * argv[]) {
         }
     */
 
+    printf ("\n");
     tmp=head;
         while(tmp!=NULL)
         {
-            printf("%3d", tmp->value);
+            printf("%d ", tmp->value);
             tmp=tmp->next;
         }
+    printf ("\n");
      /*for (tmp=head; tmp!=NULL; tmp=tmp->next)
      {
         printf("%3d", tmp->value);
@@ -81,9 +80,10 @@ int main(int argc, const char * argv[]) {
         }
     */
 
-    printf ("\n\n");
-    /*typedef struct node* NodePtr;
+    printf ("\n");
+     /*typedef struct node* NodePtr;
     NodePtr tmp=head;*/
+    typedef struct node* NodePtr;
     head=(NodePtr)malloc(sizeof(struct node));
     tmp=head;
     for (i=0; i<3; i++)
@@ -99,9 +99,10 @@ int main(int argc, const char * argv[]) {
     tmp=head;
         while(tmp!=NULL)
         {
-            printf("%3d", tmp->value);
+            printf("%d ", tmp->value);
             tmp=tmp->next;
         }
+    printf ("\n");
  /*  Exercise V Use malloc to create all nodes, instead of create a struct!!
          //use a loop to help
           
@@ -121,3 +122,4 @@ int main(int argc, const char * argv[]) {
     
     return 0;
 }
+
