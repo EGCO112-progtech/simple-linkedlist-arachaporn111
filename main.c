@@ -81,8 +81,6 @@ int main(int argc, const char * argv[]) {
     */
 
     printf ("\n");
-     /*typedef struct node* NodePtr;
-    NodePtr tmp=head;*/
     typedef struct node* NodePtr;
     head=(NodePtr)malloc(sizeof(struct node));
     tmp=head;
@@ -90,7 +88,6 @@ int main(int argc, const char * argv[]) {
     {
         tmp->value=i+3;
         tmp->next=(NodePtr)malloc(sizeof(struct node));
-        //tmp->value=i+3;
         tmp=tmp->next;
     }
     tmp->value=i+3;
